@@ -9,25 +9,25 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    --foreground: 213 31% 22%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 213 31% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 213 31% 22%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 213 17% 96%;
+    --secondary-foreground: 213 31% 22%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 213 17% 96%;
+    --muted-foreground: 213 10% 50%;
 
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 213 17% 96%;
+    --accent-foreground: 213 31% 22%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -38,14 +38,14 @@ All colors MUST be HSL.
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
+    --border: 213 17% 90%;
+    --input: 213 17% 90%;
+    --ring: 213 94% 68%;
 
-    --medical-blue: 0 0% 9%;
+    --medical-blue: 213 94% 68%;
     --medical-green: 142 76% 36%;
     --medical-red: 0 84% 60%;
-    --medical-gray: 0 0% 96%;
+    --medical-gray: 213 17% 96%;
 
     --radius: 0.5rem;
 
