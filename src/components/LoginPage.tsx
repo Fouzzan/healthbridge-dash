@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Stethoscope, Heart, Shield, User } from 'lucide-react';
+import { Stethoscope, UserPlus, LogIn } from 'lucide-react';
 
 interface LoginPageProps {
-  onLogin: (role: 'patient' | 'clinician' | 'admin') => void;
+  onSignIn: () => void;
+  onSignUp: () => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleRoleLogin = (role: 'patient' | 'clinician' | 'admin') => {
-    // In a real app, this would validate credentials
-    onLogin(role);
-  };
-
+const LoginPage: React.FC<LoginPageProps> = ({ onSignIn, onSignUp }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-accent/10 flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-6">
@@ -30,82 +21,36 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
           <p className="text-muted-foreground">Your comprehensive health management platform</p>
         </div>
 
-        {/* Login Form */}
+        {/* Action Buttons */}
         <Card className="medical-card">
           <CardHeader>
-            <CardTitle>Sign In</CardTitle>
-            <CardDescription>Enter your credentials to access your dashboard</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Role Selection */}
-        <Card className="medical-card">
-          <CardHeader>
-            <CardTitle>Choose Your Role</CardTitle>
-            <CardDescription>Select how you want to access MediConnect</CardDescription>
+            <CardTitle>Welcome to MediConnect</CardTitle>
+            <CardDescription>Your comprehensive health management platform</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <Button
               className="w-full justify-start h-12 medical-button-primary"
-              onClick={() => handleRoleLogin('patient')}
+              onClick={onSignIn}
             >
-              <User className="w-5 h-5 mr-3" />
+              <LogIn className="w-5 h-5 mr-3" />
               <div className="text-left">
-                <div className="font-medium">Patient Portal</div>
-                <div className="text-xs opacity-90">Manage appointments, view records</div>
+                <div className="font-medium">Sign In</div>
+                <div className="text-xs opacity-90">Access your existing account</div>
               </div>
             </Button>
             
             <Button
               className="w-full justify-start h-12 medical-button-primary"
-              onClick={() => handleRoleLogin('clinician')}
+              onClick={onSignUp}
             >
-              <Stethoscope className="w-5 h-5 mr-3" />
+              <UserPlus className="w-5 h-5 mr-3" />
               <div className="text-left">
-                <div className="font-medium">Clinician Dashboard</div>
-                <div className="text-xs opacity-90">Patient management, schedules</div>
-              </div>
-            </Button>
-            
-            <Button
-              className="w-full justify-start h-12 medical-button-primary"
-              onClick={() => handleRoleLogin('admin')}
-            >
-              <Shield className="w-5 h-5 mr-3" />
-              <div className="text-left">
-                <div className="font-medium">Administrator Panel</div>
-                <div className="text-xs opacity-90">System management, analytics</div>
+                <div className="font-medium">Create Account</div>
+                <div className="text-xs opacity-90">Join MediConnect today</div>
               </div>
             </Button>
           </CardContent>
         </Card>
-
-        {/* Footer */}
-        <div className="text-center text-sm text-muted-foreground">
-          <p>Demo credentials not required - simply select your role above</p>
-        </div>
       </div>
     </div>
   );
