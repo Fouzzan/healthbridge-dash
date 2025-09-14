@@ -57,27 +57,54 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="flex space-x-2 pt-4">
-              <Button 
-                className="flex-1" 
-                variant="outline"
-                onClick={() => handleRoleLogin('patient')}
-              >
-                Sign In
-              </Button>
-              <Button 
-                className="flex-1"
-                onClick={() => handleRoleLogin('patient')}
-              >
-                Login
-              </Button>
-            </div>
+          </CardContent>
+        </Card>
+
+        {/* Role Selection */}
+        <Card className="medical-card">
+          <CardHeader>
+            <CardTitle>Choose Your Role</CardTitle>
+            <CardDescription>Select how you want to access MediConnect</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <Button
+              className="w-full justify-start h-12 medical-button-primary"
+              onClick={() => handleRoleLogin('patient')}
+            >
+              <User className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">Patient Portal</div>
+                <div className="text-xs opacity-90">Manage appointments, view records</div>
+              </div>
+            </Button>
+            
+            <Button
+              className="w-full justify-start h-12 medical-button-primary"
+              onClick={() => handleRoleLogin('clinician')}
+            >
+              <Stethoscope className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">Clinician Dashboard</div>
+                <div className="text-xs opacity-90">Patient management, schedules</div>
+              </div>
+            </Button>
+            
+            <Button
+              className="w-full justify-start h-12 medical-button-primary"
+              onClick={() => handleRoleLogin('admin')}
+            >
+              <Shield className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">Administrator Panel</div>
+                <div className="text-xs opacity-90">System management, analytics</div>
+              </div>
+            </Button>
           </CardContent>
         </Card>
 
         {/* Footer */}
         <div className="text-center text-sm text-muted-foreground">
-          <p>Demo application - use any credentials to access the platform</p>
+          <p>Demo credentials not required - simply select your role above</p>
         </div>
       </div>
     </div>
